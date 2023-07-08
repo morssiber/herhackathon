@@ -23,12 +23,12 @@ public class CreateUserRequest {
     private String email;
     private String firstName;
     private String lastName;
-   // private AddressEntity address;
+    private String address;
     private String birthdate;
     private String phoneNumber;
-    //private List<String> allergies;
-    //private List<DietaryInfo> dietaryInfos;
-    //private List<String> diseases;
-    //private List<CommunityEntity> communities;
+    private List<String> allergies;
+    private List<DietaryInfo> dietaryInfos;
+    private List<String> diseases;
+    private List<CommunityEntity> communities;
     private int rewardPoints;
 }

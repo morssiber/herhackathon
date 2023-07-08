@@ -2,25 +2,38 @@ package de.herhackathon.backendservice.model.db;
 
 import de.herhackathon.backendservice.model.RequestStatus;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Builder
-@Entity(name = "request")
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name = "requests")
 public class RequestEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
-    private String description;
-    //private List<ArticleEntity> articles;
+
+    @OneToMany(mappedBy = "request")
+    private List<ArticleEntity> articles;
+
     private RequestStatus status;
-    private Date deadline;
-    //private UserEntity request;
-    //private UserEntity helper;
+
+    private String deadline;
+
+    @ManyToOne
+    @JoinColumn(name = "requester_id", nullable = false)
+    private UserEntity requester;
+
+    @ManyToOne
+    @JoinColumn(name = "helper_id", nullable = false)
+    private UserEntity helper;
 }

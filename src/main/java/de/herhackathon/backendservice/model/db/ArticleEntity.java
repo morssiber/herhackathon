@@ -1,18 +1,27 @@
 package de.herhackathon.backendservice.model.db;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@Entity(name = "article")
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name = "articles")
 public class ArticleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;
+
+    @ManyToOne
+    @JoinColumn(name="request_id", nullable = false)
+    private RequestEntity request;
+
     private String name;
     private String brand;
     private String pack;
