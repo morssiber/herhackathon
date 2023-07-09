@@ -1,7 +1,7 @@
 package de.herhackathon.backendservice.service;
 
 import de.herhackathon.backendservice.model.db.CommunityEntity;
-import de.herhackathon.backendservice.model.request.CommunityRequest;
+import de.herhackathon.backendservice.model.request.CommunityRequestDto;
 import de.herhackathon.backendservice.repository.CommunityRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class CommunityService {
     private CommunityRepository communityRepository;
     private UserService userService;
 
-    public CommunityEntity updateCommunity(CommunityRequest communityRequest) {
+    public CommunityEntity updateCommunity(CommunityRequestDto communityRequest) {
         List<CommunityEntity> communityEntityList = communityRepository.findAll().stream()
                 .filter(communityEntity -> {
                     if (!communityEntity.getUsers().isEmpty()) {

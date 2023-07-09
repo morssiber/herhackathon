@@ -1,7 +1,7 @@
 package de.herhackathon.backendservice.controller;
 
-import de.herhackathon.backendservice.model.request.CreateUserRequest;
-import de.herhackathon.backendservice.model.respoonse.UserResponse;
+import de.herhackathon.backendservice.model.request.CreateUserRequestDto;
+import de.herhackathon.backendservice.model.respoonse.UserResponseDto;
 import de.herhackathon.backendservice.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,13 +17,13 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/")
-    public ResponseEntity<UserResponse> createUser(@RequestBody CreateUserRequest createUserRequest) {
+    public ResponseEntity<UserResponseDto> createUser(@RequestBody CreateUserRequestDto createUserRequest) {
         log.info("createUser");
         return ResponseEntity.ok(userService.createUser(createUserRequest));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUser(@PathVariable int id) {
+    public ResponseEntity<UserResponseDto> getUser(@PathVariable int id) {
         log.info("getUser");
         return ResponseEntity.ok(userService.getUserResponse(id));
     }

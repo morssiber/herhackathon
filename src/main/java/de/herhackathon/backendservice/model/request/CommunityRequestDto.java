@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class CommunityRequest {
+public class CommunityRequestDto {
 
     private CommunityType type;
     private int userId;

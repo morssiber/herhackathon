@@ -15,8 +15,8 @@ public class ArticleService {
 
     private ArticleRepository articleRepository;
 
-    public List<ArticleEntity> getArticlesByName(String name) {
-        //return articleRepository.findBy()
-        return null;
+    public List<ArticleEntity> getArticlesByIds(List<Integer> ids) {
+        log.info("getArticlesByIds for ids: {}", ids);
+        return articleRepository.findAllById(ids);
     }
 }

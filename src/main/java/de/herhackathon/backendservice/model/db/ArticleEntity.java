@@ -18,7 +18,7 @@ public class ArticleEntity {
     @Column(name = "id", nullable = false)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="request_id", nullable = false)
     private RequestEntity request;
 
